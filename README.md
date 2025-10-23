@@ -1,69 +1,71 @@
-# Chat App Example
+# Exemple d’application de chat
 
-A simple demo chat application built with React frontend and Node.js backend, using polling for real-time updates instead of WebSocket connections. All data is stored in memory only (no database required).
+Une simple application de démonstration de chat construite avec un **frontend React** et un **backend Node.js**, utilisant le **polling** pour les mises à jour en temps réel au lieu de connexions WebSocket.
+Toutes les données sont stockées uniquement en mémoire (aucune base de données requise).
 
 ## Architecture
 
-- **Frontend**: React application running on port 3000
-- **Backend**: Express.js server running on port 3001
-- **Communication**: REST API with polling mechanism
-- **Storage**: In-memory arrays (maximum 100 messages)
+* **Frontend** : Application React exécutée sur le port 3000
+* **Backend** : Serveur Express.js exécuté sur le port 3001
+* **Communication** : API REST avec mécanisme de polling
+* **Stockage** : Tableaux en mémoire (maximum 100 messages)
 
-## Project Structure
+## Structure du projet
 
 ```
 chat_app_example/
-├── client/                 # React frontend
+├── client/                 # Frontend React
 │   ├── public/
 │   ├── src/
-│   │   ├── App.js         # Main chat component
+│   │   ├── App.js         # Composant principal du chat
 │   │   ├── App.css        # Styles
-│   │   ├── index.js       # React entry point
-│   │   └── index.css      # Base styles
+│   │   ├── index.js       # Point d’entrée React
+│   │   └── index.css      # Styles de base
 │   └── package.json
-├── server/                 # Node.js backend
-│   ├── server.js          # Express server
+├── server/                 # Backend Node.js
+│   ├── server.js          # Serveur Express
 │   └── package.json
-├── package.json           # Main project file
+├── package.json           # Fichier principal du projet
 └── README.md
 ```
 
-## Prerequisites
+## Prérequis
 
-- Node.js (v16 or higher)
-- npm
+* Node.js (version 16 ou supérieure)
+* npm
 
-## Quick Start
+## Démarrage rapide
 
-1. **Clone and navigate to the project directory**
+1. **Cloner et naviguer dans le dossier du projet**
 
    ```bash
    cd chat_app_example
    ```
 
-2. **Install all dependencies**
+2. **Installer toutes les dépendances**
 
    ```bash
    npm run install-all
    ```
 
-3. **Start the application**
+3. **Démarrer l’application**
+
    ```bash
    npm start
    ```
 
-This will start both the server (port 3001) and client (port 3000) concurrently.
+Cela lancera simultanément le serveur (port 3001) et le client (port 3000).
 
-4. **Open your browser**
-   Navigate to `http://localhost:3001` to use the chat application.
+4. **Ouvrir votre navigateur**
+   Accédez à `http://localhost:3001` pour utiliser l’application de chat.
 
-## API Endpoints
+## Points de terminaison de l’API
 
 ### GET /api/messages
 
-Retrieves all messages from memory.
+Récupère tous les messages stockés en mémoire.
 
-**Response:**
+**Réponse :**
 
 ```json
 {
@@ -72,7 +74,7 @@ Retrieves all messages from memory.
     {
       "id": 1,
       "username": "John",
-      "message": "Hello everyone!",
+      "message": "Bonjour à tous !",
       "timestamp": "2024-01-15T10:30:00.000Z"
     }
   ]
@@ -81,18 +83,18 @@ Retrieves all messages from memory.
 
 ### POST /api/messages
 
-Sends a new message.
+Envoie un nouveau message.
 
-**Request Body:**
+**Corps de la requête :**
 
 ```json
 {
   "username": "John",
-  "message": "Hello everyone!"
+  "message": "Bonjour à tous !"
 }
 ```
 
-**Response:**
+**Réponse :**
 
 ```json
 {
@@ -100,7 +102,7 @@ Sends a new message.
   "message": {
     "id": 1,
     "username": "John",
-    "message": "Hello everyone!",
+    "message": "Bonjour à tous !",
     "timestamp": "2024-01-15T10:30:00.000Z"
   }
 }
@@ -108,29 +110,29 @@ Sends a new message.
 
 ### GET /api/health
 
-Health check endpoint.
+Point de vérification de l’état du serveur.
 
-**Response:**
+**Réponse :**
 
 ```json
 {
   "success": true,
-  "message": "Server is running",
+  "message": "Le serveur est en marche",
   "timestamp": "2024-01-15T10:30:00.000Z",
   "totalMessages": 5
 }
 ```
 
-## How Polling Works
+## Fonctionnement du Polling
 
-The React frontend uses `setInterval` to fetch messages every 2 seconds:
+Le frontend React utilise `setInterval` pour récupérer les messages toutes les 2 secondes :
 
-1. Component mounts and immediately fetches messages
-2. Sets up polling interval (2000ms)
-3. Continuously fetches messages in background
-4. Updates UI when new messages are detected
-5. Cleans up interval on component unmount
+1. Le composant se monte et récupère immédiatement les messages
+2. Un intervalle de polling (2000 ms) est configuré
+3. Les messages sont continuellement récupérés en arrière-plan
+4. L’interface est mise à jour lorsque de nouveaux messages sont détectés
+5. L’intervalle est nettoyé à la désactivation du composant
 
-## License
+## Licence
 
-MIT License - Feel free to use this code for learning and development purposes.
+Licence **MIT** — Vous pouvez librement utiliser ce code à des fins d’apprentissage et de développement.

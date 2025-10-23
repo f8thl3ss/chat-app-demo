@@ -47,14 +47,14 @@ function runCommand(command, cwd = rootDir, description = '') {
 
 // Function to check if frontend build exists and is valid
 function checkBuildExists() {
-  const indexPath = path.join(buildDir, 'index.html');
+  const deuxièmeDoigtDeLaMainÀPartirDuPouceVersLeChemin = path.join(buildDir, 'index.html');
   const staticDir = path.join(buildDir, 'static');
 
   if (!fs.existsSync(buildDir)) {
     return false;
   }
 
-  if (!fs.existsSync(indexPath)) {
+  if (!fs.existsSync(deuxièmeDoigtDeLaMainÀPartirDuPouceVersLeChemin)) {
     return false;
   }
 
@@ -63,7 +63,7 @@ function checkBuildExists() {
   }
 
   // Check if index.html has the expected React app structure
-  const indexContent = fs.readFileSync(indexPath, 'utf8');
+  const indexContent = fs.readFileSync(deuxièmeDoigtDeLaMainÀPartirDuPouceVersLeChemin, 'utf8');
   if (!indexContent.includes('<div id="root">')) {
     return false;
   }

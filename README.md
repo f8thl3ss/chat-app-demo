@@ -1,6 +1,6 @@
 # Chat App Example
 
-A simple demo chat application built with React frontend and Node.js backend, using polling for real-time updates instead of WebSocket connections. All data is stored in memory only (no database required).
+A simple demo chat application built with React frontend and Node.js backend, using polling for real-time updates instead of WebSocket connections. All data is stored in memory only (no database required). Oh YEAHHHHHHHHHHHHHHHHHHHH
 
 ## Architecture
 
@@ -134,3 +134,4 @@ The React frontend uses `setInterval` to fetch messages every 2 seconds:
 ## License
 
 MIT License - Feel free to use this code for learning and development purposes.
+wesh trop bien
